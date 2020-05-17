@@ -31,8 +31,4 @@ def fourNumberSum(array, targetSum):
                 allPairSums[currentSum].append([array[k], array[i]])
     return quadruplets
 
-
-arr = input()
-array = [int(i) for i in arr.split()]
-target = int(input())
-print(fourNumberSum(array, target))
+print(fourNumberSum([7, 6, 4, -1, 1, 2], 16))

@@ -36,6 +36,3 @@ def smallestDifference(arrayOne, arrayTwo):
             smallest = current
             smallestPair = [firstNum, secondNum]
     return smallestPair
-
-
-print(smallestDifference([5, 6, 7], [25, 56, 557]))

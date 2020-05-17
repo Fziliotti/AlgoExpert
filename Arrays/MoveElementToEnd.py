@@ -21,9 +21,3 @@ def moveElementToEnd(array, toMove):
             array[i], array[j] = array[j], array[i]
         i += 1
     return array
-
-
-arr = input()
-array = [int(i) for i in arr.split()]
-toMove = int(input())
-print(moveElementToEnd(array, toMove))

@@ -14,8 +14,10 @@ Sample output: [[-8, 2, 6], [-8, 3, 5], [-6, 1, 5]]
 """
 
 
+# SOLUTION 1
+
 # O(n^3) time | O(1) space
-def threeNumberSum(array, targetSum):
+def threeNumberSum1(array, targetSum):
     ans = []
     for i in range(len(array) - 2):
         firstNum = array[i]
@@ -27,6 +29,8 @@ def threeNumberSum(array, targetSum):
                     ans.append([firstNum, secondNum, thirdNum])
     return ans
 
+
+# SOLUTION 2
 
 # O(n^2) time | O(n) space
 def threeNumberSum2(array, targetSum):
@@ -46,9 +50,3 @@ def threeNumberSum2(array, targetSum):
                 left += 1
                 right -= 1
     return ans
-
-
-arr = input()
-array = [int(i) for i in arr.split()]
-target = int(input())
-print(threeNumberSum(array, target))

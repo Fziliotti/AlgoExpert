@@ -12,8 +12,10 @@ Sample output: [-1, 11]
 """
 
 
+# SOLUTION 1
+
 # O(n^2) time | O(1) space
-def twoNumberSum(array, targetSum):
+def twoNumberSum1(array, targetSum):
     for i in range(len(array) - 1):
         firstNum = array[i]
         for j in range(i+1, len(array)):
@@ -22,6 +24,8 @@ def twoNumberSum(array, targetSum):
                 return [firstNum, secondNum]
     return []
 
+
+# SOLUTION 2
 
 # O(n) time | O(n) space
 def twoNumberSum2(array, targetSum):
@@ -34,6 +38,8 @@ def twoNumberSum2(array, targetSum):
             a.append(i)
     return []
 
+
+# SOLUTION 3
 
 # O(n log(n)) time | O(1) space
 def twoNumberSum3(array, targetSum):
@@ -49,9 +55,3 @@ def twoNumberSum3(array, targetSum):
         else:
             return [array[left], array[right]]
     return []
-
-
-arr = input("")
-array = [int(i) for i in arr.split()]
-target = int(input())
-print(twoNumberSum3(array, target))
