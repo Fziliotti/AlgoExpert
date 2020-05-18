@@ -12,13 +12,15 @@ Sample output: 2 ("noon | abba | d")
 """
 
 
+# SOLUTION 1
+
 # O(n^3) time | O(n^2) space
-def palindromePartitioningMinCuts(string):
+def palindromePartitioningMinCuts1(string):
     palindromes = [[False for _ in string] for _ in string]
     for i in range(len(string)):
         for j in range(i, len(string)):
-            palindromes[i][j] = isPalindrome(string[i : j + 1])
-    cuts = [float("inf") for i in string]
+            palindromes[i][j] = isPalindrome(string[i: j + 1])
+    cuts = [float("inf") for _ in string]
     for i in range(len(string)):
         if palindromes[0][i]:
             cuts[i] = 0
@@ -41,6 +43,8 @@ def isPalindrome(string):
     return True
 
 
+# SOLUTION 2
+
 # O(n^2) time | O(n^2) space
 def palindromePartitioningMinCuts2(string):
     palindromes = [[False for _ in string] for _ in string]
@@ -53,7 +57,7 @@ def palindromePartitioningMinCuts2(string):
                 palindromes[i][j] = string[i] == string[j]
             else:
                 palindromes[i][j] = string[i] == string[j] and palindromes[i + 1][j - 1]
-    cuts = [float("inf") for i in string]
+    cuts = [float("inf") for _ in string]
     for i in range(len(string)):
         if palindromes[0][i]:
             cuts[i] = 0

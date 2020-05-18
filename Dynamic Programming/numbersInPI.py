@@ -16,11 +16,24 @@ Sample output: 2 ("314159265 | 35897932384626433832 | 79")
 """
 
 
+# SOLUTION 1
+
 # O(n^3 + m) time | O(n + m) space - where n is the number of digits in Pi and m is the number of favorite numbers
-def numbersInPi(pi, numbers):
+def numbersInPi1(pi, numbers):
     numbersTable = {number: True for number in numbers}
     minSpaces = getMinSpaces(pi, numbersTable, {}, 0)
     return -1 if minSpaces == float("inf") else minSpaces
+
+
+# SOLUTION 2
+
+# O(n^3 + m) time | O(n + m) space - where n is the number of digits in Pi and m is the number of favorite numbers
+def numbersInPi2(pi, numbers):
+    numbersTable = {number: True for number in numbers}
+    cache = {}
+    for i in reversed(range(len(pi))):
+        getMinSpaces(pi, numbersTable, cache, i)
+    return -1 if cache[0] == float("inf") else cache[0]
 
 
 def getMinSpaces(pi, numbersTable, cache, idx):
@@ -36,12 +49,3 @@ def getMinSpaces(pi, numbersTable, cache, idx):
             minSpaces = min(minSpaces, minSpacesInSuffix + 1)
     cache[idx] = minSpaces
     return cache[idx]
-
-
-# O(n^3 + m) time | O(n + m) space - where n is the number of digits in Pi and m is the number of favorite numbers
-def numbersInPi2(pi, numbers):
-    numbersTable = {number: True for number in numbers}
-    cache = {}
-    for i in reversed(range(len(pi))):
-        getMinSpaces(pi, numbersTable, cache, i)
-    return -1 if cache[0] == float("inf") else cache[0]

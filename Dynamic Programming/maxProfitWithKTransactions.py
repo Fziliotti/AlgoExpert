@@ -21,6 +21,8 @@ Sample output: 93 (Buy: 5, Sell: 11; Buy: 3, Sell: 90)
 """
 
 
+# SOLUTION 1
+
 # O(nk) time | O(nk) space
 def maxProfitWithKTransactions(prices, k):
     if not len(prices):
@@ -33,6 +35,8 @@ def maxProfitWithKTransactions(prices, k):
             profits[t][d] = max(profits[t][d-1], maxThisFar + prices[d])
     return profits[-1][-1]
 
+
+# SOLUTION 2
 
 # O(nk) time | O(n) space
 def maxProfitWithKTransactions2(prices, k):
@@ -52,6 +56,3 @@ def maxProfitWithKTransactions2(prices, k):
             maxThisFar = max(maxThisFar, previousProfit[d-1] - prices[d-1])
             currentProfit[d] = max(currentProfit[d-1], maxThisFar + prices[d])
     return oddProfits[-1] if k % 2 else evenProfits[-1]
-
-
-print(maxProfitWithKTransactions2([3, 2, 5, 7, 1, 3, 7], 1))

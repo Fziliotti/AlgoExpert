@@ -80,6 +80,3 @@ def buildLongestStringChain(strings, stringChains):
         currentString = stringChains[currentString]["nextString"]
 
     return [] if len(ourLongestStringChain) == 1 else ourLongestStringChain
-
-
-print(longestStringChain(["abde", "abc", "abd", "abcde", "ade", "ae", "1abde", "abcdef"]))

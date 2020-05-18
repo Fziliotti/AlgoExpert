@@ -22,6 +22,3 @@ def numberOfWaysToMakeChange(n, denoms):
             if denom <= amount:
                 ways[amount] += ways[amount-denom]
     return ways[n]
-
-
-print(numberOfWaysToMakeChange(6, [1, 5]))
