@@ -26,7 +26,7 @@ def permutationsHelper1(array, currentPermutation, permutations):
         permutations.append(currentPermutation)
     else:
         for i in range(len(array)):
-            newArray = array[:i] + array[i + 1 :]
+            newArray = array[:i] + array[i + 1:]
             newPermutation = currentPermutation + [array[i]]
             permutationsHelper1(newArray, newPermutation, permutations)
 
